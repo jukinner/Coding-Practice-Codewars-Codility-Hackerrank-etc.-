@@ -5,7 +5,7 @@
 #final answer
 def count_chars(s)
   answer = Hash.new
-  s.split("").each { |x| answers[x] = s.count(x)}
+  s.split("").each { |x| answer[x] = s.count(x)}
   p answer
 end
 
@@ -18,7 +18,7 @@ end
 def count_chars(s)
   answer = Hash.new
   s.split("").each do |x| 
-    answers[x] = s.count(x)
+    answer[x] = s.count(x)
   end
   p answer
 end

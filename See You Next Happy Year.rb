@@ -31,3 +31,14 @@ end
 
 next_happy_year(1001)
 
+best practices
+def next_happy_year(year)    
+  (year+1).upto(9999).detect { |n| n.digits.uniq.size == 4 }
+end
+
+def next_happy_year(year)
+  begin 
+    year += 1
+  end while year.to_s.chars.map(&:to_i).uniq.length != 4
+  year
+end

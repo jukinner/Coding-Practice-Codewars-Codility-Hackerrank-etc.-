@@ -4,10 +4,16 @@ def vowel_remover(alphabet)
   p alphabet.delete_if { |x| x =~ /[aeiou]/ }
 end
 
+# Jordan's code
+essentially this says find these letters, remove them and return everything that is left. 
+def vowel_remove (alphabet)
+  alphabet.grep(/[^aeiou]/)
+end
 
 
-alphabet = ('a'..'z').to_a
-vowel_remover(alphabet)
+
+# alphabet = ('a'..'z').to_a
+# vowel_remover(alphabet)
 
 describe 'Vowel remover' do
   it 'removes vowels from the alphabet' do

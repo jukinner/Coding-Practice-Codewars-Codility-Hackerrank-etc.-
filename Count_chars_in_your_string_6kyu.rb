@@ -22,3 +22,5 @@ def count_chars(s)
   end
   p answer
 end
+
+count_chars('aba')

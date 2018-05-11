@@ -22,6 +22,11 @@ def fibonacci num
   return array
 end 
 
+# Jordan's Answer
+def fibonacci num
+  (1..num).inject( [0, 1] ) { | fib | fib << fib.last(2).inject(:+) }
+end
+
 
 describe 'Fibbonacci' do
   it 'properly calculates the fibonacci value' do

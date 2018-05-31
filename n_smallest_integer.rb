@@ -26,5 +26,11 @@ end
 nth_smallest([45, -10, 4, 5, 4], 4)
 
 
+# refactor-because it returns nil anyway, if there is not nth number. 
+
+def nth_smallest(arr, n)
+  arr.uniq.sort[n-1]
+end
+
 
 

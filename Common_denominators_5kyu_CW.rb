@@ -33,35 +33,21 @@
 # convertFracs [(1, 2), (1, 3), (1, 4)] `shouldBe` [(6, 12), (4, 12), (3, 12)]
 
 
-# def convertFracs(frac)
-#   test = "#{frac}"
-#   p test
-#   p test.class
-# end
-
-
-
-lcm_array = []
-i = 1
-testa = [[1, 2], [1, 3], [1, 4]]
-testa.each do |x|
-  lcm_array << x[i]
+def convertFracts(testa)
+  lcm_array = []
+  testa.each do |x|
+    lcm_array << x[1]
+  end
+  lcm = lcm_array.reduce(1, :lcm)
+  testa.map do |r|
+    r[0] = r[0] * (lcm/r[1])
+    r[1] = lcm
+  end
+  return testa
 end
-p lcm_array
 
-p lcm = lcm_array.reduce(1, :lcm)
-testa.map do |r|
-  p r[0] = r[0] * (lcm/r[1])
-  p r[1] = lcm
+# BEST PRACTICE REFACTORED
+def convertFracts(lst)
+  lcm = lst.reduce(1) { |x,y| x.lcm(y[1]) }
+  lst.map { |x| [lcm/x[1]*x[0], lcm] }
 end
-p testa
-
-
-
-
-# p "#{testh}"
-# p 2.lcm(3)
-# p testa.class
-# p testh.class
-
-# convertFracs([[1, 2], [1, 3], [1, 4]])

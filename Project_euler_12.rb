@@ -19,13 +19,13 @@
 
 # num = 28
 require 'Prime'
-# (1..num).select { |n|num % n == 0}
+
 fact_count = 0
 i = 12350
 tri_nums = (0..i).to_a.inject(&:+)
 while fact_count <= 500
   i += 1
-  p tri_nums = tri_nums + i
+  tri_nums = tri_nums + i
   triangle_num = tri_nums
   fact_count = (1..triangle_num).select { |n|triangle_num % n == 0}.count
 end

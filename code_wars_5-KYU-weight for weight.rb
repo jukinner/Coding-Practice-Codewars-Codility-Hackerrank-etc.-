@@ -15,27 +15,24 @@
 # it may happen that the input string have leading, trailing whitespaces and more than a unique whitespace between two consecutive numbers
 # Don't modify the input
 # For C: The result is freed.
-require 'to_words'
+# require 'to_words'
 
 def order_weight(strng)
   usable = strng
   usable = usable.chomp(" ").reverse.chomp(" ").reverse.split(/\s+/).sort_by {|i| i.to_i.digits.inject(&:+) }
-  i = 0
-  usable
-  usable.each do
-    if usable[i].to_i.digits.inject(&:+) == usable[i + 1].to_i.digits.inject(&:+)
-      comp = usable[i].to_i <=> usable[i + 1].to_i
-      if comp == -1
-        usable[i], usable[i+1] = usable[i+1], usable[i]
+  usable.length.times do
+    i = 0
+    usable.each do
+      temp = []
+      if usable[i].to_i.digits.inject(&:+) == usable[i + 1].to_i.digits.inject(&:+)
+        temp << usable[i] << usable[i+1]
+        usable[i], usable[i+1] = temp.sort[0], temp.sort[1]
       end
+      i += 1 
     end
-  i += 1
   end
-  p usable
+  p usable.join(" ")
 end
 
-# p "one hundred and eighty" <=> "nine"
-
 order_weight("103 123 4444 99 2000")
-
-# "2000 103 123 4444 99"
+order_weight("2000 10003 1234000 44444444 9999 11 11 22 123")

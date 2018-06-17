@@ -3,7 +3,16 @@ require 'rspec'
 # my Answer
 class String
   def hashtag_generator
-    split(" ").map {|e| "#" + e}.join(" ")
+    split(" ").map { |e| "#" + e }.join(" ")
+  end
+end
+
+# Jordan's answer
+class String
+  def hashtag_generator
+    split.map do |e|
+      "##{e}"
+    end.join(' ')
   end
 end
 

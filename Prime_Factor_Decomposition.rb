@@ -10,9 +10,9 @@ def primeFactors(n)
     if Prime.prime?(i)
       while d % i == 0
         d = d / i
-        p divisors << i
+        divisors << i
       end
-    p factors << divisors
+    factors << divisors
     end
   i += 1
   end
@@ -33,18 +33,18 @@ primeFactors(7775460)
 
 
 # Simpler way using built in Prime division library
-def primeFactors(n)
-  answer = Prime.prime_division(n)
-  formatted = []
-  answer.each do |x|
-    if x[1] > 1
-      formatted << "(#{x[0]}**#{x[1]})"
-    elsif x[1] == 1
-      formatted << "(#{x[0]})"
-    end
-  end
-  p formatted.join
-end
+# def primeFactors(n)
+#   answer = Prime.prime_division(n)
+#   formatted = []
+#   answer.each do |x|
+#     if x[1] > 1
+#       formatted << "(#{x[0]}**#{x[1]})"
+#     elsif x[1] == 1
+#       formatted << "(#{x[0]})"
+#     end
+#   end
+#   p formatted.join
+# end
 
 
 

@@ -15,10 +15,22 @@
 # string_infinity_generator 20000 # => ["1", "2", ..., "20000"]
 
 require 'rspec'
-
+# first answer-most logical to me
 def string_ininity_generator num
   (1..num).to_a.map {|x| x.to_s } 
 end
+# Alternative, leveraging infinity
+# def string_infinity_generator num
+#   arr = []
+
+#   (1..Float::INFINITY).each do |i|
+#     arr << i.to_s
+#     break if i == num
+#   end
+
+#   arr
+# end
+
 
 describe 'Infinity string generator' do
   it 'an array of string based integers from 1 to 10 when 10 is the method argument' do

@@ -36,7 +36,14 @@ def append_js_file_extension files
   p files.map { |e| e.slice!(12..-1) + ".js"}
 end
 
-
+# alternate way
+# def append_js_file_extension required_files
+#   required_files.map do |file|
+#     file.gsub(/\/\/= require /, '')
+#   end.map do |f|
+#     f + '.js'
+#   end
+# end
 
 describe 'JavaScript file extension' do
   it 'converts require statements to javascript file name' do
@@ -58,11 +65,4 @@ describe 'JavaScript file extension' do
 end
 
 
-javascript_files = [
-      '//= require custom/scripts',
-      '//= require base/defaults',
-      '//= require html.sortable',
-      '//= require moment',
-      '//= require test-styles'
-    ]
-append_js_file_extension javascript_files
+

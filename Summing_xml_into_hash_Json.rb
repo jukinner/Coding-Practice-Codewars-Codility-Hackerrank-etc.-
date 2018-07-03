@@ -87,10 +87,9 @@ def macbeth_counter
       end
     end
   end
-  p counter_hash
+  counter_hash
 end
 
-macbeth_counter["ROSS"]
 
 describe 'XML counter' do
   it 'can count the lines in macbeth for each character' do

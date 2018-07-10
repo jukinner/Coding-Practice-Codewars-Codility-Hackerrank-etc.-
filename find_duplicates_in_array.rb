@@ -45,6 +45,13 @@ class Array
       i != self.index(e)
     end
   end
+  # faster implementation
+  def slow_find_duplicates
+    group_by { |e| e }.
+      each_with_object([]) do |i, arr|
+        arr << i.last.drop(1)
+      end.flatten
+  end
 
 end
 

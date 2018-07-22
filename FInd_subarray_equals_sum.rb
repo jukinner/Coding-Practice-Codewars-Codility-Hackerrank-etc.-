@@ -21,11 +21,35 @@
 
 require 'rspec'
 
-def subarray_sum(arr, sum)
-  to_sum = Array.new
-  zero, one = 0, 1
+def subarray_sum arr, sum
+  if arr.size == 1 && arr.first == sum
+    return [0]
+  end
 
+  i = 0
+  j = 1
+  current_sum = arr[i]
+
+  while j < arr.length
+    current_sum += arr[j]
+    j += 1
+
+    while current_sum > sum && i < j-1
+      current_sum -= arr[i]
+      i += 1
+    end
+
+    if current_sum == sum
+      p (i...j).to_a
+    end
+  end
+
+  p 'No subarray found'
 end
+
+
+arr = [1, 4]
+subarray_sum(arr, 0)
 
 describe 'Find subarray with given sum' do
   it 'finds array index range for a sum of 33' do
@@ -44,25 +68,50 @@ describe 'Find subarray with given sum' do
   end
 end
 
-arr = [1, 4, 20, 3, 10, 5]
-sum = 33
-# p arr[2..4].inject(&:+)
-status = false
-zero, one, x = 0, 1, 1
-to_sum = Array.new
-arr.length.times do 
-  (arr.length - x).times do 
-    # to_sum = Array.new
-    to_sum = arr[zero..one]
-    if to_sum.inject(&:+) == sum
-      break
-    else
-      x += 1
-    end
-  end
-  zero +=1
-  one = zero + 1
-end
 
-p to_sum
+
+# arr = [1, 4, 20, 3, 10, 5]
+# sum = 33
+# p arr[2..4].inject(&:+)
+# status = false
+# zero, one, x = 0, 1, 1
+# to_sum = Array.new
+# arr.length.times do 
+#   (arr.length - x).times do 
+#     # to_sum = Array.new
+#     to_sum = arr[zero..one]
+#     if to_sum.inject(&:+) == sum
+#       break
+#     else
+#       x += 1
+#     end
+#   end
+#   zero +=1
+#   one = zero + 1
+# end
+
+# p to_sum
+
+
+# arr = [1, 4, 20, 3, 10, 5]
+# sum = 33
+# i = 0
+# j = 1
+# current_sum = arr[i]
+# if arr[0] == sum
+#   p arr[0]
+# else
+#   while current_sum < sum 
+    
+#     current_sum += arr[j]
+#     j += 1
+#     p current_sum
+#     break if current_sum == sum
+#     if j = arr.length
+      
+
+
+#   end
+
+
 

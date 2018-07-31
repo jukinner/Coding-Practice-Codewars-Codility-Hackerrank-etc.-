@@ -9,6 +9,27 @@
 // removeUrlAnchor('www.codewars.com?page=1')
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // first pass
 function removeUrlAnchor(url){
   if (url.includes('#')) {
@@ -22,5 +43,10 @@ function removeUrlAnchor(url){
 // second pass
 function removeUrlAnchor(url){
   let place = url.indexOf('#');
-  url.includes('#') ? url.slice(0, place) : url 
+  return url.includes('#') ? url.slice(0, place) : url 
+}
+
+function removeUrlAnchor(url) {
+  var index = url.indexOf("#");
+  return index == -1 ? url : url.substring(0, url.indexOf("#"));
 }

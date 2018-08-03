@@ -7,15 +7,46 @@
 
 // // returns 'www.codewars.com?page=1' 
 // removeUrlAnchor('www.codewars.com?page=1')
-// one way
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// first pass
 function removeUrlAnchor(url){
-  return url.slice(0,16)
+  if (url.includes('#')) {
+    let place = url.indexOf('#');
+    return url.slice(0, place);
+   } else {
+    return url 
+  }
 }
 
-// 2nd way
+// second pass
 function removeUrlAnchor(url){
-  return url.match(/www.codewars.com/i)[0]
+  let place = url.indexOf('#');
+  return url.includes('#') ? url.slice(0, place) : url 
 }
 
-
-// removeUrlAnchor('www.codewars.com#about')
+function removeUrlAnchor(url) {
+  var index = url.indexOf("#");
+  return index == -1 ? url : url.substring(0, url.indexOf("#"));
+}

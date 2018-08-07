@@ -17,13 +17,7 @@ def duplicate_count(text)
 	return counter
 end
 
-# Test.assert_equals(duplicate_count(""), 0)
-# Test.assert_equals(duplicate_count("abcde"), 0)
-# Test.assert_equals(duplicate_count("abcdeaa"), 1)
-# Test.assert_equals(duplicate_count("abcdeaB"), 2)
-# Test.assert_equals(duplicate_count("Indivisibilities"), 2)
-
-
-# p "abcdeaa".split("").uniq
-
-duplicate_count("abcdeaB99")
+# best practice
+def duplicate_count(text)
+  ('a'..'z').count { |c| text.downcase.count(c) > 1 }
+end

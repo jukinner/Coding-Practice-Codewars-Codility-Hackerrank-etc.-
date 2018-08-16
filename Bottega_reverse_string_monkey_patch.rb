@@ -29,3 +29,17 @@ describe 'Letter reversing' do
 end
 
 "Hi there".alt_reverse
+
+# ALTERNATE answerclass String
+class String  
+  def alt_reverse
+    reversed_string = ""
+    string_length = self.length - 1
+
+    string_length.downto(0).each do |l|
+      reversed_string << self[l]
+    end
+
+    reversed_string
+  end
+end

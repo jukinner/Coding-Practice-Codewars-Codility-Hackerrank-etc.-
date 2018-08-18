@@ -12,12 +12,23 @@
 # arr.does_it_have? 20 # false
 
 require 'rspec'
-
+# first answer
 class Array
   def does_it_have? num
     answer = []
     self.each { |x| answer << x if x == num }
     p answer.count > 0 ? true : false
+  end
+end
+
+# alternate answer
+class Array
+  def does_it_have? element
+    each do |i|
+      return true if i == element
+    end
+
+    false
   end
 end
 

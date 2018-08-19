@@ -22,19 +22,20 @@
 # Dynamically generating arrays, filling them with data, and then clearing elements
 
 require 'rspec'
+# 1st answer
+def multiplication_table num
+  answer_hash, array = Hash.new, []
+  (1..num).to_a.each do |x|
+    (1..10).to_a.each do |y|
+      array << x * y
+    end
+    answer_hash[x] = array
+    array = []
+  end 
+  answer_hash
+end
 
-# def multiplication_table num
-#   answer_hash, array = Hash.new, []
-#   (1..num).to_a.each do |x|
-#     (1..10).to_a.each do |y|
-#       array << x * y
-#     end
-#     answer_hash[x] = array
-#     array = []
-#   end 
-#   answer_hash
-# end
-
+# 2nd answer
 def multiplication_table num
   answer_hash = []
   (1..num).to_a.each_with_object(Hash.new) do |e, hash|
@@ -42,6 +43,23 @@ def multiplication_table num
     hash[e] = answer_hash
     answer_hash = []
   end
+end
+
+# 3rd answer
+def multiplication_table num
+  hash = Hash.new
+
+  1.upto(num).each do |i|
+    products = []
+
+    (1..10).to_a.each do |e|
+      products.push(e * i)
+    end
+
+    hash[i] = products
+  end
+
+  hash
 end
 
 

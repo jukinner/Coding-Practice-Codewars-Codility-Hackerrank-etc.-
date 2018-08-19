@@ -23,17 +23,27 @@
 
 require 'rspec'
 
+# def multiplication_table num
+#   answer_hash, array = Hash.new, []
+#   (1..num).to_a.each do |x|
+#     (1..10).to_a.each do |y|
+#       array << x * y
+#     end
+#     answer_hash[x] = array
+#     array = []
+#   end 
+#   answer_hash
+# end
+
 def multiplication_table num
-  answer_hash, array = Hash.new, []
-  (1..num).to_a.each do |x|
-    (1..10).to_a.each do |y|
-      array << x * y
-    end
-    answer_hash[x] = array
-    array = []
-  end 
-  answer_hash
+  answer_hash = []
+  (1..num).to_a.each_with_object(Hash.new) do |e, hash|
+    (1..10).to_a.each { |y| answer_hash << e * y }
+    hash[e] = answer_hash
+    answer_hash = []
+  end
 end
+
 
 describe 'Multiplication table' do
   it 'Creates a hash based multiplcation table' do
@@ -46,6 +56,7 @@ describe 'Multiplication table' do
     expect(multiplication_table 3).to eq(hash)
   end
 end
+
 
 
 # Iterator 1: 1 to num

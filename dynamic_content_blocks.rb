@@ -19,6 +19,54 @@
 
 require 'rspec'
 
+# notes!
+# def eat(meal)
+#   if block_given?
+#     meal.each {|food| yield(food)}
+#   end
+#   'delicious!'
+# end
+
+# puts eat(['cheese', 'steak', 'wine']) {|food| puts "Mmm, #{food}"}
+# # >> Mmm, cheese
+# # >> Mmm, steak
+# # >> Mmm, wine
+# # >> delicious!
+
+# puts eat(['cheese'])
+# # >> delicious!
+@players = ['Altuve', 'Correa', 'Bregman']
+
+
+# def lineup_generator(arr)
+#   answer = []
+#   if block_given?
+#     arr.each_with_index { |x, y| x = answer << yield(y,x)}
+#   end
+#   p answer
+# end
+
+def lineup_generator(arr)
+  answer = []
+  x = 1
+  if block_given?
+    arr.each do |y|
+      answer << yield(x,y)
+      x += 1
+    end
+  end
+  answer
+end
+
+
+# 3rd option
+# def lineup_generator(list, &block)
+#   list.map.with_index(1) do |player, index|
+#     yield(index, player)
+#   end
+# end
+
+
 describe 'Lineup Generator' do
   before do
     @players = ['Altuve', 'Correa', 'Bregman']

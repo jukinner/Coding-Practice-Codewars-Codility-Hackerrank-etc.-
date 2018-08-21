@@ -12,12 +12,19 @@
 # give_triang(15) ----> 1 # One integer triangle of (120 degrees). It's (3, 5, 7)
 # give_triang(30) ----> 3 # Three triangles: (3, 5, 7), (6, 10, 14) and (7, 8, 13)
 # give_triang(50) ----> 5 # (3, 5, 7), (5, 16, 19), (6, 10, 14), (7, 8, 13) and (9, 15, 21) are t
-
+def cosine
+	cosine of 120 degrees is -.5
+	a2 = c2 + b2 - 2bc cos A, (this is important to use)
+	is it a triange? (a+b > c && a+c > b && b+c > a)
+end
 
 
 def give_triang(per)
-    # your code
+   
 end
+
+The third important property of triangles is the triangle inequality rule, which states: the length of a side of a triangle is 
+less than the sum of the lengths of the other two sides and greater than the difference of the lengths of the other two sides. 
 
 # Math you need
 

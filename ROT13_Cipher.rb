@@ -4,22 +4,38 @@
 
 # Please note that using "encode" in Python is considered cheating.
 
-# def rot13(string)
-
-#   alpha = (a..z).to_a
-#   base = string.split()
-#   base.each do |variable|
-
-    
-#   end
-# end
-
-
-
-string = "grfg"
-p alpha = ("a".."z").to_a
-p base = string.split()
-base.each do
+def rot13(string)
+  answer, alpha = ("a".."z").to_a, ""
+  string.chars.each do |l|
+    if alpha.include?(l)
+      index = alpha.find_index(l)
+      index < 13 ? answer << alpha[index + 13] : answer << alpha[12-(25 - index)]
+    elsif alpha.include?(l.downcase)
+      index = alpha.find_index(l.downcase)
+      index < 13 ? answer << alpha[index + 13].upcase : answer << alpha[12-(25 - index)].upcase
+    end
+  end
+  answer
+end
 
 
-  TO FINISH
+def rot13(string)
+  string.tr("A-Za-z", "N-ZA-Mn-za-m")
+end
+
+def rot13(string)
+  origin = ('a'..'z').to_a.join + ('A'..'Z').to_a.join
+  cipher = ('a'..'z').to_a.rotate(13).join + ('A'..'Z').to_a.rotate(13).join
+  string.tr(origin, cipher)
+end
+
+
+
+
+
+
+
+
+
+
+

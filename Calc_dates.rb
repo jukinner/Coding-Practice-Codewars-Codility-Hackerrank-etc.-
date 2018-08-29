@@ -20,7 +20,10 @@ def day_counter
 	p days = (@end - @begin).to_i
 end
 
-
+# Another way to do This
+def day_counter
+  Integer(Date.new(2016, 12, 25) - Date.new(2004, 07, 01))
+end
 
 describe 'Day counter' do
   it 'counts the days between Christmas in 2016 and July 1, 2004' do

@@ -15,17 +15,21 @@
 # This process is utilized extensively when it comes to building view helper methods in Rails applications. If you work in Rails based applications you will encounter many situations when you need to dynamically generate HTML code.
 
 require 'rspec'
-
+# my first answer
 def image_tag link, *args
 	answer = ""
   args[0].each_pair { |key, value| answer << " #{key}='#{value}'"} if args[0] != nil
 	"<img src='#{link}'#{answer}>"
 end
 
-@image_path = "https://devcamp.com/some_pic.jpg"
-# image_tag(@image_path, width: 42)
-# image_tag(@image_path, width: 42, alt: "My Image")
-image_tag(@image_path)
+# 2nd answer
+def image_tag image_path, options = {}
+  str = "<img src='#{image_path}'"
+
+  options.map { |a, v| str << " #{a}='#{v}'"}
+
+  str << ">"
+end
 
 describe 'Cloned image_tag' do
   before do

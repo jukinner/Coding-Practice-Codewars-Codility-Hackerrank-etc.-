@@ -21,7 +21,7 @@ class NullClass
     name.to_s || super
   end
 end
-
+ # Hopefully this comment shows up!
 
 describe 'Null class' do
   before do

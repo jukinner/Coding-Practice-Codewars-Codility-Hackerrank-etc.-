@@ -32,11 +32,11 @@
 # SimpleDelegator is one of the most popular. This is critical when it comes to building clean programs and following best practices.
 
 require 'rspec'
-require 'delegate'
+require 'date'
 
 # Initial answer
 class Invoice
-	attr_reader :name
+	attr_accessor :name
 
 	def initialize name
 		@name = name
@@ -45,17 +45,40 @@ end
 
 class InvoiceDecorator < SimpleDelegator
 	def first_name
-		p name.split(" ")[0]
+		name.split(" ")[0]
 	end
 
 	def last_name
-		p name.split(" ")[1]
+		name.split(" ")[1]
 	end
 
 	def invoice_month
-		p 9
+		9
 	end
 
+end
+
+# ALTERNATE SOLUTION
+class Invoice
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def invoice_date
+    Date.new(1989, 9, 10)
+  end
+end
+
+class InvoiceDecorator < SimpleDelegator
+  def invoice_month
+    invoice_date.month
+  end
+
+  def last_name
+    name.split.last
+  end
 end
 
 

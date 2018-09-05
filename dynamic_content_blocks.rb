@@ -18,6 +18,7 @@
 
 
 require 'rspec'
+
 # notes!
 # def eat(meal)
 #   if block_given?
@@ -64,6 +65,7 @@ end
 #     yield(index, player)
 #   end
 # end
+
 
 describe 'Lineup Generator' do
   before do

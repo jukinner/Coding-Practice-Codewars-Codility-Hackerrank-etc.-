@@ -20,7 +20,11 @@ def hash_sum data
 	data.values.inject(&:+)
 end
 
-hash_sum(invoices)
+# 2nd way to handle
+def hash_sum(hash)
+  return 0 if hash.empty?
+  hash.values.inject(&:+)
+end
 
 describe 'Hash sum' do
   it 'returns the sum of a hash where the values contain numbers' do

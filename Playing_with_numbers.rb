@@ -19,18 +19,26 @@
 # dig_pow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
 # dig_pow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688
 
+# def dig_pow(n, p)
+# 	section_1, num = [], n.digits.reverse
+# 	num.each do |x| 
+# 		section_1 << x**(p)
+#     p += 1
+# 	end
+# 	section_1 = section_1.inject(&:+) 
+# 	if section_1 % n == 0
+# 		section_1 / n
+# 	else
+# 		-1
+# 	end
+# end
+
 def dig_pow(n, p)
-	section_1, num = [], n.digits.reverse
-	num.each do |x| 
-		section_1 << x**(p)
+	section_1 = n.digits.reverse.each_with_object([]) do |x, arr| 
+		arr << x**(p)
     p += 1
 	end
-	section_1 = section_1.inject(&:+) 
-	if section_1 % n == 0
-		section_1 / n
-	else
-		-1
-	end
+	section_1.inject(&:+) % n == 0 ? section_1.inject(&:+) / n : -1
 end
 
 p dig_pow(89,1)

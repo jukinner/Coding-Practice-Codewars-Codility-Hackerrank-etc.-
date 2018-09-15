@@ -15,18 +15,24 @@
 
 require 'rspec'
 
-def all_palindromes(length, str)
-	answer = str.split(" ").each_with_object([]) do |element, arr|
-		arr << element if element.length == length && (element.downcase == element.downcase.reverse)
-	end
-	answer
+# def all_palindromes(length, str)
+# 	answer = str.split(" ").each_with_object([]) do |element, arr|
+# 		arr << element if element.length == length && (element.downcase == element.downcase.reverse)
+# 	end
+# 	answer
+# end
+
+# second option
+def all_palindromes(num, str)
+  str.split.keep_if { |e| e.size == num }.select { |pl| pl.downcase == pl.downcase.reverse }
 end
 
+
 # sample data
-# str = 'I am going to jump into my racecar and see tacocat'
-# str_with_different_cases = 'Time to jump into my racEcAr and see Tacocat'
-# p all_palindromes(7, str)
-# p all_palindromes(7, str_with_different_cases)
+str = 'I am going to jump into my racecar and see tacocat'
+str_with_different_cases = 'Time to jump into my racEcAr and see Tacocat'
+p all_palindromes(7, str)
+p all_palindromes(7, str_with_different_cases)
 
 
 describe 'all_palindromes' do

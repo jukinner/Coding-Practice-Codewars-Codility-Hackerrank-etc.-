@@ -4,8 +4,6 @@ def remove_first_and_last(arr)
   raise ArgumentError, 'At least three elements are needed in the array' unless arr.count > 2
   arr[1..-2]
 end
-html = ['<h1>', 'My content']
-p remove_first_and_last(html)
 
 describe '.remove_first_and_last' do
   it 'removes the first and last elements from an array and returns any elements in the middle of the collection' do

@@ -19,13 +19,6 @@
 
 require 'rspec'
 
-# def first_repeated_element(arr)
-# 	answer = arr.uniq.each_with_object(Hash.new) do |item, h|
-# 		h[item] = arr.count(item)
-# 		return item if 
-# 	end
-# end
-
 def first_repeated_element(arr)
 	answer = nil
 	arr.uniq.each do |x| 
@@ -37,6 +30,20 @@ def first_repeated_element(arr)
 	answer
 end
 
+# Jordan's answer
+def first_repeated_element(arr)
+  return nil if arr.empty?
+
+  counter_hash = Hash.new { 0 }
+
+  arr.each do |e|
+    counter_hash[e] = counter_hash[e] += 1
+
+    return e if counter_hash[e] > 1
+  end
+
+  return nil
+end
 
 # each_with_object(Hash.new { |h, k| h[k] = [] }) do | file, hash |
 

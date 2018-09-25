@@ -14,6 +14,7 @@
 # This exercise will help you in real world applications that are time based and help report to managers if a projects is done inside the timeline or outside the timeline.
 
 require 'rspec'
+require 'date'
 
 def during_this_day? (start, final, test)
 	(test >= start && test <= final) ? true : false
@@ -28,6 +29,16 @@ end
 # in_day = Time.new(2017, 7, 31, 9, 59, 59)
 
 # p during_this_day?(@beginning_of_day, @end_of_day, in_day)
+
+# Jordan's Answer
+# def during_this_day? start_date, end_date, date_to_check
+#   while start_date < end_date
+#     return true if start_date == date_to_check
+#     start_date += 1
+#   end
+
+#   false
+# end
 
 describe 'during_this_day?' do
   before do

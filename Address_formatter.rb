@@ -28,7 +28,6 @@
 require 'rspec'
 
 class AddressFormatter
-
   def self.format (data)
     if data[:street_two] == nil
       <<~ADDRESS
@@ -48,18 +47,20 @@ class AddressFormatter
 
 end
 
+# Jordan's more concise answer
+module AddressFormatter
+  def self.format(address_obj)
+    str_address = <<~ADDRESS
+      #{address_obj[:account]}
+      #{address_obj[:street_one]}
+      #{address_obj[:street_two]}
+      #{address_obj[:city]}, #{address_obj[:state]} #{address_obj[:postal_code]}
+    ADDRESS
+    str_address.gsub /^$\n/, ''
+  end
+end
 
 
-address_data = {
-      'account':     'Google',
-      'street_one':  '1600 Amphitheatre Parkway',
-      'street_two':  nil,
-      'city':        'Mountain View',
-      'state':       'CA',
-      'postal_code': '94043'
-    }
-
-AddressFormatter.format(address_data)    
 
 describe AddressFormatter do
   it 'takes in an address as a hash and outputs a formatted string' do

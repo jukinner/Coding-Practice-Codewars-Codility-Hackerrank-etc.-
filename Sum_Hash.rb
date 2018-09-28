@@ -21,6 +21,12 @@ def hash_sum variable
 	sum
 end
 
+# Alternate answer-don't like this as it doesn't check values
+def hash_sum(hash)
+  return 0 if hash.empty?
+  hash.values.inject(&:+)
+end
+
 
 describe 'Hash sum' do
   it 'returns the sum of a hash where the values contain numbers' do

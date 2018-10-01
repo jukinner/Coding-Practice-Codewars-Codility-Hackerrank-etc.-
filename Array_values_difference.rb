@@ -38,6 +38,19 @@ class GroupByDifference
   end
 end
 
+# 2nd answer
+class GroupByDifference
+  def initialize(numbers)
+    @numbers = numbers.sort
+  end
+  
+  def find(difference)
+    @numbers.select.with_index {|x, i|
+       (i > 0 and @numbers[i-1] + difference >= x) or (i < @numbers.length - 1 and @numbers[i+1] <= difference + x)
+    }
+  end
+end
+
 numbers = [5, 32, 5, 1, 31, 70, 30, 8]
 GroupByDifference.new(numbers).find(1)
 

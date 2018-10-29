@@ -29,17 +29,17 @@ require 'rspec'
 # 	p answer.join
 # end
 
-def switcheroo(x)
-	answer = x.chars.each_with_object([]) do |item, arr|
-		arr << "a" if item == "b"
-		arr << "b" if item == "a"
-		arr << "c" if item == "c"
-	end
-	answer.join
-end
+# def switcheroo(x)
+# 	answer = x.chars.each_with_object([]) do |item, arr|
+# 		arr << "a" if item == "b"
+# 		arr << "b" if item == "a"
+# 		arr << "c" if item == "c"
+# 	end
+# 	answer.join
+# end
 
 def switcheroo(x)
-
+	x.tr('ab', 'ba')
 end
 
 switcheroo('abc')

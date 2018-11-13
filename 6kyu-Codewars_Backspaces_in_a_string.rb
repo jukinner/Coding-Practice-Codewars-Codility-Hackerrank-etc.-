@@ -20,4 +20,7 @@ def clean_string(string)
   answer.join("")
 end
 
-
+def clean_string(string)
+  answer = string.chars.each_with_object([]) { |item, obj| item == "#" ? obj.delete_at(-1) if obj[-1] != "" : obj << item }
+  answer.join("")
+end

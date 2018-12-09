@@ -22,10 +22,15 @@ def persistence(n)
   counter
 end
 
+# best practice with recursion
+def persistence(n)
+  n < 10 ? 0 : 1 + persistence(n.to_s.chars.map(&:to_i).reduce(:*))
+end
+
 describe "persistent bugger tests" do
 	it 'can handle different scenarios' do
     expect(persistence(39)).to eq(3)
-    expect(persistence(4).to eq(0)
+    expect(persistence(4)).to eq(0)
     expect(persistence(25)).to eq(2)
     expect(persistence(999)).to eq(4)
   end

@@ -11,13 +11,23 @@
 
 require 'rspec'
 
+# def make_password(phrase)
+#   phrase = phrase.split(" ").map! { |y| y[0] }.map! do |x| 
+#   /[iI]/ =~ x ? x = "1" : x
+#   /[oO]/ =~ x ? x = "0" : x
+#   /[sS]/ =~ x ? x = "5" : x
+#   end.join("")
+# end
+
 def make_password(phrase)
   phrase = phrase.split(" ").map! { |y| y[0] }.map! do |x| 
-  /[iI]/ =~ x ? x = "1" : x
-  /[oO]/ =~ x ? x = "0" : x
-  /[sS]/ =~ x ? x = "5" : x
+  x.tr("iI","1")
+  x.tr("oO","0")
+  x.tr("sS","5")
   end.join("")
 end
+
+
 
 describe 'Password Creator' do
 	it 'can handle different length strings' do

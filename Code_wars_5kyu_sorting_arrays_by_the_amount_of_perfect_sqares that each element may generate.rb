@@ -31,16 +31,18 @@
 require 'rspec'
 
 def sort_by_perfsq(array)
-	p array
-	
-  answer = array.each_with_object([]) do |item, arr| 
-    perm = item.digits.permutation.to_a.map! { |x| x.join.to_i }
-    perm.each {|x| arr << x if x % Math.sqrt(x) == 0 }
+	answer = array.each_with_object(Hash.new) do |item, hash| 
+		hash[item] = 0
+    perm = item.digits.permutation.to_a.map! { |x| x.join.to_i }.uniq
+    perm.each {|x| hash[item] += 1 if x % Math.sqrt(x) == 0 }
   end
-  p answer.sort
+  answer = answer.group_by{|k,v| v }.sort.reverse.to_h
+  p answer = answer.each_value.to_a.map! {|x| x.sort_by {|y| y[0]}}.flatten(1).map!{|z| z.delete_at(0)}
 end
 
-sort_by_perfsq([715, 112, 136, 169, 144])
+# sort_by_perfsq([715, 112, 136, 169, 144])
+# sort_by_perfsq([144])
+# sort_by_perfsq([234, 61, 16, 441, 144, 728])
 
 describe 'sorting by perfect squares' do
 	it 'can sort by perfect squares to complete the test' do

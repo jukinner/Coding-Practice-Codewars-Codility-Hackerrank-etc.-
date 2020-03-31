@@ -21,3 +21,12 @@ public class GiftSorter{
     return String.join("",arrOfStr);
   }
 }
+
+//top answer-great use of splitting a string into individual chars. Similar to Ruby. string.chars or number.digits. 
+public class GiftSorter{
+  public String sortGiftCode(String code){
+    char[] chars = code.toCharArray();
+    java.util.Arrays.sort(chars);
+    return new String(chars);
+  }
+}

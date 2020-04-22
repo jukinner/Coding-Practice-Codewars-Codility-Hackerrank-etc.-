@@ -53,3 +53,25 @@ public class Scale {
       return finalAnswer.toString().trim();
     }
 }
+
+//1 of the top answers
+public class Scale {
+        
+        public static String scale(String strng, int k, int v) {
+        int scale = k, rpt = v;
+        String s = strng, ss = "";
+        for (String t : s.split("\n")) { //Word loop
+            for (int j = 0; j < rpt; j++) { //Repeat loop
+                for (char c : t.toCharArray()) { //Char loop
+                    for (int i = 0; i < scale; i++) { //Scale loop
+                        ss += c;
+                    }
+                }
+                ss += "\n";
+            }
+        }
+        ss = ss.substring(0, ss.length()-1);
+        ss = ss.trim();
+        return ss; 
+        }
+    }

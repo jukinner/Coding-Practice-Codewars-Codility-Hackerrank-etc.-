@@ -26,3 +26,11 @@ public class Square {
       return true;
     }
 }
+
+//most voted on answer
+import static java.lang.Math.*;
+public class Square {    
+    public static boolean isSquare(int n) {      
+        return Math.sqrt(n) % 1 == 0;
+    }
+}

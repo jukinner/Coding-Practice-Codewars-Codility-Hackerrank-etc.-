@@ -10,11 +10,31 @@ public class SquareDigit {
 
   public int squareDigits(int n) {
     char[] charArray = String.valueOf(n).toCharArray();
-    Integer[] boxedArray = Arrays.stream(integerArray)
-                                  .boxed()
-                                  .toArray(Integer[]::new);
-    System.out.println(Arrays.toString(boxedArray));
-  return n;
+    List<Integer> numbers = new ArrayList<Integer>();
+    for (char c : charArray) {
+      numbers.add(Integer.parseInt(String.valueOf(c)) * Integer.parseInt(String.valueOf(c)));
+    }
+    StringBuilder str = new StringBuilder();
+    for (Integer x : numbers) {
+      str.append(Integer.toString(x));
+    }
+    return Integer.parseInt(String.valueOf(str));
   }
+}
+
+
+// STREAM ANSWER-#2 on list
+import java.util.stream.Collectors;
+
+public class SquareDigit {
+
+    public int squareDigits(int n) {
+        return Integer.parseInt(String.valueOf(n)
+                                      .chars()
+                                      .map(i -> Integer.parseInt(String.valueOf((char) i)))
+                                      .map(i -> i * i)
+                                      .mapToObj(String::valueOf)
+                                      .collect(Collectors.joining("")));
+    }
 
 }

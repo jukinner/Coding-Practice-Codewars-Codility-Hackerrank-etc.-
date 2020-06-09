@@ -1,0 +1,20 @@
+// Welcome. In this kata, you are asked to square every digit of a number.
+
+// For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+// Note: The function accepts an integer and returns an integer
+
+import java.util.*;
+
+public class SquareDigit {
+
+  public int squareDigits(int n) {
+    char[] charArray = String.valueOf(n).toCharArray();
+    Integer[] boxedArray = Arrays.stream(integerArray)
+                                  .boxed()
+                                  .toArray(Integer[]::new);
+    System.out.println(Arrays.toString(boxedArray));
+  return n;
+  }
+
+}

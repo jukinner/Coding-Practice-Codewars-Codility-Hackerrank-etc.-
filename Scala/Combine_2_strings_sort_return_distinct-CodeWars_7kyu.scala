@@ -18,6 +18,12 @@ object Kata {
   }
 }
 
+//best voted on Answer
+object Kata {
+
+  def longest(s1: String, s2: String): String = (s1 + s2).toSeq.distinct.sorted.unwrap
+}
+
 // TESTS
 import org.scalatest._
 

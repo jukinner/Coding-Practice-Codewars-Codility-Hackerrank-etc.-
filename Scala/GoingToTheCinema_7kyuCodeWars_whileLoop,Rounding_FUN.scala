@@ -29,7 +29,7 @@ object Movie {
     var sysACost: Int = ticket
     var sysBCost: Double = card + (ticket * perc)
     var newPerc: Double = perc
-    while(sysACost < roundUp(sysBCost)) {
+    while(sysACost <= roundUp(sysBCost)) {
       count = count + 1
       sysACost = sysACost + ticket
       newPerc = newPerc * perc

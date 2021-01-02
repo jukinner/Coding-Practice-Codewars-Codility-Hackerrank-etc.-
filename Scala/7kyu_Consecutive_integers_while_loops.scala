@@ -13,25 +13,34 @@
 
 // * consecutiveDucks(64)  ==>  return (false)
 
-// * consecutiveDucks(42)  ==>  return (true) //  42 , could be expre
 
+// initial answer not thinking correctly. brute force method
 object Kata {
   def consecutiveDucks(n: Int): Boolean = {
+    if (n % 2 == 1) return true
     var sum: Int = 0
     var counter: Int = 1
     var midCounter: Int = 1
-    while (counter < (n + 1)/2) {
+    while (counter < (n + 1)/3) {
       sum = 0
       while (sum < n) {
-        sum = (counter to midCounter).sum
-        if ((sum == n) && ((counter to midCounter).size >= 2)) {
+        var range = (counter to midCounter).toArray
+        if ((range.sum == n) && (range.size >= 2)) {
           return true
         }
         midCounter += 1
       }
-      midCounter = 1
       counter += 1
+      midCounter = counter + 1
     }
     false
+  }
+}
+
+
+// sumbitted answer-so much simpler. simple math answer
+object Kata {
+  def consecutiveDucks(n: Int): Boolean = {
+   if (((n&(n-1))!=0) && n!=0) true else false
   }
 }
